@@ -5,21 +5,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7d1f118-156a-4896-846c-358347361e96" name="更改" comment="initial">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/merchantData.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platformData.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/LogIn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/SQLHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/log_in.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/userData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/PriceCompareApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;3591332691&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="b5701f37-f835-4038-8bdf-2882167fcc72" />
+        <option name="url" value="https://github.com/3591332691/database_pj.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2ZO178CgQThxYFFZu8N9GgO9V1A" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,6 +65,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
@@ -37,13 +75,18 @@
     "project.structure.last.edited": "SDK",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "settings.editor.selected.configurable": "database.query.execution",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.database_pj.HelloApplication" />
+    <configuration name="PriceCompareApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.database_pj.PriceCompareApplication" />
       <module name="database_pj" />
       <extension name="coverage">
         <pattern>
@@ -57,7 +100,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.HelloApplication" />
+        <item itemvalue="应用程序.PriceCompareApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -71,7 +114,9 @@
       <updated>1702278145433</updated>
       <workItem from="1702278146477" duration="3000" />
       <workItem from="1702300936336" duration="506000" />
-      <workItem from="1702301481123" duration="3373000" />
+      <workItem from="1702301481123" duration="4500000" />
+      <workItem from="1703438126469" duration="830000" />
+      <workItem from="1703444650821" duration="13465000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <option name="closed" value="true" />
@@ -89,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702303853527</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="initial">
+      <option name="closed" value="true" />
+      <created>1702312267828</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702312267828</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

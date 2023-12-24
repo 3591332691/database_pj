@@ -8,8 +8,7 @@ module com.example.database_pj {
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    requires jfxrt;
-    requires rt;
+    requires java.sql;
 
     opens com.example.database_pj to javafx.fxml;
     exports com.example.database_pj;
