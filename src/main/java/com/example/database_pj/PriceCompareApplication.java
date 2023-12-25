@@ -21,9 +21,9 @@ public class PriceCompareApplication extends Application {
         SQLHelper a = new SQLHelper();
         a.initializeTables();
         a.close();
-
+        //创建窗体
         FXMLLoader fxmlLoader = new FXMLLoader(PriceCompareApplication.class.getResource("log_in.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 500, 300);
         stage.setTitle("Go Smart Shop!");
         stage.setScene(scene);
         stage.show();

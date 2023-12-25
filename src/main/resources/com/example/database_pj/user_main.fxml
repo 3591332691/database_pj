@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500" prefWidth="800" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+
+    <HBox spacing="10">
+        <!-- 左侧 VBox -->
+        <VBox prefWidth="300">
+            <HBox alignment="CENTER" spacing="20.0">
+                 <children>
+                    <Button fx:id="ToPersonalInformationButton" mnemonicParsing="false" text="个人信息" />
+                    <Button fx:id="ToFavoriteButton" mnemonicParsing="false" text="收藏的商品" />
+                    <Button fx:id="ToMessageButton" mnemonicParsing="false" text="消息页面" />
+                 </children>
+                 <padding>
+                    <Insets bottom="10.0" top="10.0" />
+                 </padding>
+            </HBox>
+
+            <StackPane fx:id="user_main_left_container" prefHeight="400.0" prefWidth="300">
+                <VBox alignment="CENTER" prefHeight="400.0" prefWidth="300"
+                      spacing="100"
+                      style="-fx-background-color: #ffffff;"
+                        fx:id="PersonalInformationVBox">
+                    <Text fx:id="Name" text="Name: " />
+                    <Text fx:id="Age" text="Age: " />
+                    <Text fx:id="Gender" text="Gender: " />
+                    <Text fx:id="Phone" text="Phone: " />
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="400.0" prefWidth="300" style="-fx-background-color: #ffffff;"
+                      fx:id="FavoriteVBox">
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="400.0" prefWidth="300" style="-fx-background-color: #ffffff;"
+                      fx:id="MessageVBox">
+                </VBox>
+
+            </StackPane>
+        </VBox>
+
+        <!-- 右侧 GridPane -->
+        <GridPane>
+            <!-- 添加你需要的控件和布局，例如搜索框和搜索按钮 -->
+            <TextField GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Button text="Search" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+
+        </GridPane>
+    </HBox>
+
+</AnchorPane>

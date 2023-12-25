@@ -358,7 +358,7 @@ public class SQLHelper {
      * @throws SQLException
      */
     public int isUserNameExists(String UserName) throws SQLException {
-        String sql = "SELECT UserId FROM User WHERE UserName = ?";
+        String sql = "SELECT UserId FROM User WHERE Name = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, UserName);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -368,6 +368,25 @@ public class SQLHelper {
             UserId = resultSet.getInt("UserId");
         }
         return UserId;
+    }
+
+    /**
+     * 用来判断这个商户名在数据库里是否存在
+     * @param MerchantName
+     * @return 如果存在，返回MerchantId(从1开始的)，如果不存在，返回0
+     * @throws SQLException
+     */
+    public int isMerchantNameExists(String MerchantName) throws SQLException {
+        String sql = "SELECT MerchantId FROM Merchant WHERE Name = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, MerchantName);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        int MerchantId = 0; // 默认为0，表示用户名不存在
+        if (resultSet.next()) {
+            MerchantId = resultSet.getInt("MerchantId");
+        }
+        return MerchantId;
     }
 
     /**
