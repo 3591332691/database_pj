@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import java.lang.*?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            prefHeight="500.0" prefWidth="800.0">
+    <HBox spacing="10">
+        <!-- 左边个人信息 -->
+        <VBox prefWidth="200.0"
+              spacing="10"
+              alignment="TOP_CENTER">
+            <Label text="个人信息"/>
+            <Text fx:id="merchant_name"
+                  text="姓名: "/>
+            <Text fx:id="merchant_address"
+                  text="地址: "/>
+        </VBox>
+
+        <VBox prefWidth="200.0" spacing="10" alignment="TOP_CENTER">
+            <Label text="新商品发布" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+
+            <Label text="商品名称" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="productNameTextField" promptText="商品名称" GridPane.columnIndex="1"
+                       GridPane.rowIndex="1"/>
+
+            <Label text="商品价格" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="productPriceTextField" promptText="商品价格" GridPane.columnIndex="1"
+                       GridPane.rowIndex="2"/>
+
+            <Label text="商品种类" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <TextField fx:id="productCategoryTextField" promptText="商品种类" GridPane.columnIndex="1"
+                       GridPane.rowIndex="3"/>
+
+            <Label text="商品产地" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <TextField fx:id="productOriginTextField" promptText="商品产地" GridPane.columnIndex="1"
+                       GridPane.rowIndex="4"/>
+
+            <Label text="商品生产日期" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+            <TextField fx:id="productProductionDateTextField" promptText="yyyy-MM-dd" GridPane.columnIndex="1"
+                       GridPane.rowIndex="5"/>
+
+            <Label text="发布平台" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+            <ComboBox fx:id="publishPlatformComboBox" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="1.淘宝"/>
+                        <String fx:value="2.天猫"/>
+                        <String fx:value="3.京东"/>
+                        <String fx:value="4.eBay"/>
+                        <String fx:value="5.Walmart"/>
+                        <String fx:value="6.Best Buy"/>
+                        <String fx:value="7.Target"/>
+                        <String fx:value="8.拼多多"/>
+                        <String fx:value="9.亚马逊"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <Button fx:id="releaseButton" text="发布" GridPane.columnIndex="0" GridPane.rowIndex="7"
+                    GridPane.columnSpan="2"/>
+        </VBox>
+
+        <!-- 右边商品列表 -->
+        <VBox prefWidth="350.0"
+              spacing="10"
+              alignment="TOP_CENTER">
+            <Label text="商品列表"/>
+            <ListView fx:id="productList"/>
+        </VBox>
+    </HBox>
+</AnchorPane>

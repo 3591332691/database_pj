@@ -3,6 +3,7 @@ package com.example.database_pj;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -42,6 +43,7 @@ public class SQLHelper {
             injectUserData();
             injectMerchantData();
             injectPlatformData();
+            injectProductData();
         }
     }
 
@@ -160,6 +162,61 @@ public class SQLHelper {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 用来注入商品数据
+     */
+    private void injectProductData() {
+        try {
+            // 读取productData.csv文件
+            String csvFilePath = "productData.csv";
+            BufferedReader reader = new BufferedReader(new FileReader(csvFilePath));
+            String line;
+            // 逐行读取CSV文件并插入到product表中
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                // 解析CSV行的数据
+                int ProductId = Integer.parseInt(fields[0]);
+                String Name = fields[1];
+                String Category = fields[2];
+                String Origin = fields[3];
+                //处理date数据
+                String dateString = fields[4];
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                java.util.Date parsedDate;
+                parsedDate = dateFormat.parse(dateString);
+                Date sqlDate = new Date(parsedDate.getTime());
+                //
+                int MerchantId = Integer.parseInt(fields[5]);
+                //处理price
+                double Price = Double.parseDouble(fields[6]);
+                int PlatformId = Integer.parseInt(fields[7]);
+                // 检查ID是否已存在,防止重复插入报错
+                if (isTableIdExists("Product", ProductId)) {
+                    continue;
+                }
+                // 插入数据到platform表
+                String sql = "INSERT INTO Product (ProductId, Name, Category, Origin ,Production_Date, MerchantId, Price ,PlatformId) " +
+                        "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, ProductId);
+                preparedStatement.setString(2, Name);
+                preparedStatement.setString(3, Category);
+                preparedStatement.setString(4, Origin);
+                preparedStatement.setDate(5, sqlDate);
+                preparedStatement.setInt(6, MerchantId);
+                preparedStatement.setDouble(7, Price);
+                preparedStatement.setInt(8, PlatformId);
+                preparedStatement.executeUpdate();
+            }
+            reader.close();
+            System.out.println("Product数据注入成功！");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * 用来创建User表
      */
@@ -213,7 +270,7 @@ public class SQLHelper {
                     "Origin VARCHAR(100)," +
                     "Production_Date DATE," +
                     "MerchantId INT," +
-                    "Price DECIMAL(10, 2)," +
+                    "Price DOUBLE," +
                     "PlatformId INT," +
                     "FOREIGN KEY (MerchantId) REFERENCES Merchant(MerchantId)," +
                     "FOREIGN KEY (PlatformId) REFERENCES Platform(PlatformId)" +
@@ -338,6 +395,23 @@ public class SQLHelper {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    /**
+     * 用于执行插入操作
+     *
+     * @param query
+     * @return 返回值为 true，则表示插入成功；如果返回值为 false，则表示插入失败。
+     */
+    public boolean executeUpdate(String query) {
+        try {
+            Statement statement = connection.createStatement();
+            int rowsAffected = statement.executeUpdate(query);
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
         }
     }
     private boolean isTableIdExists(String table_name, int id) throws SQLException {

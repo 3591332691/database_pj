@@ -4,20 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d1f118-156a-4896-846c-358347361e96" name="更改" comment="SQLHelper类写完了，数据导入已完成">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/Observer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/UserMainView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/userMainMenu/PersonalInformation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/userMainMenu/favorite.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/userMainMenu/message.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/user_main.fxml" afterDir="false" />
+    <list default="true" id="b7d1f118-156a-4896-846c-358347361e96" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/productData.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/Merchant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/ObserverTool/Observer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/ObserverTool/Subject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/MerchantMainView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/merchant_main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/94746bba-f8a9-480b-ac32-f8ecb4e11c91.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/94746bba-f8a9-480b-ac32-f8ecb4e11c91.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/LogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/LogInView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/PriceCompareApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/PriceCompareApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/LogInView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/LogInView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/Observer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/SQLHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/SQLHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/UserMainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/UserMainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/log_in.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/log_in.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/user_main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/user_main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,37 +65,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDK",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "database.query.execution",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDK&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.database_pj" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="PriceCompareApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.database_pj.PriceCompareApplication" />
       <module name="database_pj" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.database_pj.*" />
+          <option name="PATTERN" value="com.example.database_pj.ObserverTool.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,7 +126,8 @@
       <workItem from="1702300936336" duration="506000" />
       <workItem from="1702301481123" duration="4500000" />
       <workItem from="1703438126469" duration="830000" />
-      <workItem from="1703444650821" duration="30238000" />
+      <workItem from="1703444650821" duration="32164000" />
+      <workItem from="1703952367557" duration="16592000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <option name="closed" value="true" />
@@ -150,7 +161,23 @@
       <option name="project" value="LOCAL" />
       <updated>1703458983052</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="UserMainView的个人信息填好了">
+      <option name="closed" value="true" />
+      <created>1703475672670</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1703475672670</updated>
+    </task>
+    <task id="LOCAL-00006" summary="left">
+      <option name="closed" value="true" />
+      <created>1703475698124</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1703475698124</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,25 +197,35 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial" />
     <MESSAGE value="SQLHelper类写完了，数据导入已完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="SQLHelper类写完了，数据导入已完成" />
+    <MESSAGE value="usermain页面左边的个人信息done" />
+    <MESSAGE value="UserMainView的个人信息填好了" />
+    <MESSAGE value="left" />
+    <option name="LAST_COMMIT_MESSAGE" value="left" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/UserMainView.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="40" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/UserMainView.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="41" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/UserMainView.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="43" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

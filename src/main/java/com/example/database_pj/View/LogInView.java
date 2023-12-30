@@ -1,5 +1,7 @@
-package com.example.database_pj;
+package com.example.database_pj.View;
 
+import com.example.database_pj.PriceCompareApplication;
+import com.example.database_pj.SQLHelper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,11 +28,9 @@ public class LogInView {
             alert.setHeaderText(null);
             alert.setContentText("您的用户名未注册");
             alert.showAndWait();
-        }
-        else if(a.isUserNameExists(username)!=0){//他是用户或者是商户
+        } else if (a.isUserNameExists(username) != 0) {
             switchToUserMainScene(username);
-        }
-        else{
+        } else {//他是商户
             switchToMerchantMainScene(username);
         }
     }
@@ -41,7 +41,7 @@ public class LogInView {
 
         // 设置新窗体的内容
         UserMainView controller = new UserMainView(username);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("user_main.fxml"));
+        FXMLLoader loader = new FXMLLoader(PriceCompareApplication.class.getResource("user_main.fxml"));
         loader.setController(controller);
         Parent root = loader.load(); // 先加载FXML文件
         Scene scene = new Scene(root, 800, 500); // 设置Scene
@@ -56,23 +56,26 @@ public class LogInView {
         // 显示新窗体
         newStage.show();
     }
-    private void switchToMerchantMainScene(String username) throws IOException {
+
+    private void switchToMerchantMainScene(String username) throws IOException, SQLException {
         // 创建新的窗体（Stage）
         Stage newStage = new Stage();
+        // 设置新窗体的内容，把新窗体和新的控制器连接在一起
+        MerchantMainView controller = new MerchantMainView(username);
+        //set location
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(PriceCompareApplication.class.getResource("merchant_main.fxml"));
 
-        // 设置新窗体的内容
-        Parent root = FXMLLoader.load(getClass().getResource("user_main.fxml"));
-        Scene scene = new Scene(root);
+        loader.setController(controller);
+        Parent root = loader.load(); // 先加载FXML文件
+        Scene scene = new Scene(root, 800, 500); // 设置Scene
+
+        newStage.setTitle("welcome! " + username);
         newStage.setScene(scene);
-
-
-
-
-
 
         // 关闭或销毁原来的窗体（Stage）
         Stage originalStage = (Stage) usernameField.getScene().getWindow();
-        originalStage.close(); // 或者使用 originalStage.hide()
+        originalStage.close();
 
         // 显示新窗体
         newStage.show();

@@ -12,4 +12,8 @@ module com.example.database_pj {
 
     opens com.example.database_pj to javafx.fxml;
     exports com.example.database_pj;
+    exports com.example.database_pj.View;
+    opens com.example.database_pj.View to javafx.fxml;
+    exports com.example.database_pj.ObserverTool;
+    opens com.example.database_pj.ObserverTool to javafx.fxml;
 }

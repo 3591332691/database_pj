@@ -1,11 +1,14 @@
 package com.example.database_pj;
 
+import com.example.database_pj.ObserverTool.Observer;
+import com.example.database_pj.ObserverTool.Subject;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User extends Observer{
+public class User extends Observer {
     private int UserId;
     public String Name;
     public int Age;
@@ -30,7 +33,6 @@ public class User extends Observer{
     /**
      * 得到用户收藏的商品
      * @return  查询过程中没有找到匹配的Favorite项目，favoriteProductsArray 将返回一个长度为 0 的空数组
-     * @throws SQLException
      */
     public int[] GetFavor() throws SQLException {
         List<Integer> favorite_products_id = new ArrayList<>();
@@ -57,7 +59,10 @@ public class User extends Observer{
      * 若是，则发送信息
      */
     @Override
-    public void update(){
+    public void update(Subject a) {
         //TODO:可能是往message里insert一条信息
+        //      查找Favor库，如果a的价格低于User设定的Price_Lower_Limit
+        //      就往Message里新增一条信息
+
     }
 }

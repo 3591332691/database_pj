@@ -1,5 +1,6 @@
-package com.example.database_pj;
+package com.example.database_pj.View;
 
+import com.example.database_pj.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
@@ -26,7 +27,6 @@ public class UserMainView {
     Text Phone;
     public UserMainView(String username) throws SQLException {
         user = new User(username);
-        initialize();
     }
     @FXML
     public StackPane user_main_left_container;
