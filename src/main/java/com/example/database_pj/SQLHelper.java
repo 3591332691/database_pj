@@ -44,6 +44,7 @@ public class SQLHelper {
             injectMerchantData();
             injectPlatformData();
             injectProductData();
+            injectPriceHistoryData();
         }
     }
 
@@ -89,7 +90,6 @@ public class SQLHelper {
             e.printStackTrace();
         }
     }
-
     /**
      * 用来注入商户数据
      */
@@ -162,7 +162,6 @@ public class SQLHelper {
             e.printStackTrace();
         }
     }
-
     /**
      * 用来注入商品数据
      */
@@ -211,6 +210,56 @@ public class SQLHelper {
             }
             reader.close();
             System.out.println("Product数据注入成功！");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 用来注入价格历史数据
+     */
+    private void injectPriceHistoryData() {
+        try {
+            // 读取priceHistoryData.csv文件
+            String csvFilePath = "priceHistoryData.csv";
+            BufferedReader reader = new BufferedReader(new FileReader(csvFilePath));
+            String line;
+            // 逐行读取CSV文件并插入到product表中
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                // 解析CSV行的数据
+                int PriceHistoryId = Integer.parseInt(fields[0]);
+                int ProductId = Integer.parseInt(fields[1]);
+                int MerchantId = Integer.parseInt(fields[2]);
+                int PlatformId = Integer.parseInt(fields[3]);
+                double Price = Double.parseDouble(fields[4]);
+                //处理date数据
+                String dateString = fields[5];
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                java.util.Date parsedDate;
+                parsedDate = dateFormat.parse(dateString);
+                Date sqlDate = new Date(parsedDate.getTime());
+                // 检查ID是否已存在,防止重复插入报错
+                if (isTableIdExists("PriceHistory", PriceHistoryId)) {
+                    continue;
+                }
+                // 插入数据到ProductHistory表
+                String sql = "INSERT INTO PriceHistory " +
+                        "(PriceHistoryId, ProductId, MerchantId, PlatformId ,Price, Date) " +
+                        "VALUES ( ?, ?, ?, ?, ?, ?)";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, PriceHistoryId);
+                preparedStatement.setInt(2, ProductId);
+                preparedStatement.setInt(3, MerchantId);
+                preparedStatement.setInt(4, PlatformId);
+                preparedStatement.setDouble(5, Price);
+                preparedStatement.setDate(6, sqlDate);
+                preparedStatement.executeUpdate();
+            }
+            reader.close();
+            System.out.println("ProductHistory数据注入成功！");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -414,6 +463,15 @@ public class SQLHelper {
             return false;
         }
     }
+
+    /**
+     * 查看table中id是否已经存在
+     *
+     * @param table_name 表名
+     * @param id         id名
+     * @return 若存在，返回true
+     * @throws SQLException
+     */
     private boolean isTableIdExists(String table_name, int id) throws SQLException {
         // 构建查询语句
         String sql = "SELECT COUNT(*) FROM " + table_name + " WHERE " + table_name + "Id = ?";

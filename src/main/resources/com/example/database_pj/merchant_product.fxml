@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.database_pj.View.MerchantProductView">
+
+    <center>
+        <HBox prefHeight="400.0" prefWidth="600.0" spacing="10">
+            <VBox alignment="TOP_CENTER" prefWidth="200.0" spacing="10">
+                <Text fx:id="product_name" text="商品名称: "/>
+                <Text fx:id="product_category" text="商品类别: "/>
+                <Text fx:id="product_origin" text="商品产地: "/>
+                <Text fx:id="product_date" text="生产日期: "/>
+                <Text fx:id="product_platform" text="发布平台: "/>
+                <Text fx:id="product_merchant" text="发布人: "/>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="259.0" prefWidth="346.0" spacing="10"
+                  BorderPane.alignment="CENTER">
+                <Text fx:id="product_price" text="商品价格: "/>
+                <Text fx:id="product_lowestPrice" text="历史最低价: "/>
+                <Label text="按时间范围选择: "/>
+                <ComboBox fx:id="chooseTimeGap">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="1.近一周"/>
+                            <String fx:value="2.近一月"/>
+                            <String fx:value="3.近一年"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <StackPane>
+                    <LineChart fx:id="WeekChart">
+                        <xAxis>
+                            <CategoryAxis label="日期"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="价格"/>
+                        </yAxis>
+                    </LineChart>
+                    <LineChart fx:id="MonthChart">
+                        <xAxis>
+                            <CategoryAxis label="日期"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="价格"/>
+                        </yAxis>
+                    </LineChart>
+                    <LineChart fx:id="YearChart">
+                        <xAxis>
+                            <CategoryAxis label="日期"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="价格"/>
+                        </yAxis>
+                    </LineChart>
+                </StackPane>
+            </VBox>
+        </HBox>
+
+    </center>
+</BorderPane>
