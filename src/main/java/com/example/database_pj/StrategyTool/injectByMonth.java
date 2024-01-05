@@ -13,7 +13,7 @@ public class injectByMonth implements injectStrategy {
         String query = "SELECT Price, Date " +
                 "FROM PriceHistory " +
                 "WHERE productId = " + productId + " " +
-                "AND Date >= DATE_SUB(NOW(), INTERVAL 1 Month)";
+                "AND Date >= DATE_SUB(NOW(), INTERVAL 1 MONTH)";
         ResultSet resultSet = a.executeQuery(query);
         while (resultSet.next()) {
             dataSeries.getData().add(new XYChart.Data<>(resultSet.getDate("Date").toString(), resultSet.getDouble("Price")));

@@ -42,6 +42,8 @@ public class UserProductView {
     private LineChart YearChart;
     @FXML
     private ComboBox<String> chooseTimeGap;
+    @FXML
+    private Text product_TempLowestPrice;
 
     public void setProductId(int ProductId) {
         try {
@@ -125,10 +127,85 @@ public class UserProductView {
         // 根据选择的选项决定哪个Chart在最上面
         if ("1.近一周".equals(selectedOption)) {
             WeekChart.toFront();
+            try {
+                weekLowestPrice();
+            } catch (SQLException e) {
+                // 异常处理代码，可以打印异常信息或执行其他操作
+                e.printStackTrace();
+            }
         } else if ("2.近一月".equals(selectedOption)) {
             MonthChart.toFront();
+            try {
+                monthLowestPrice();
+            } catch (SQLException e) {
+                // 异常处理代码，可以打印异常信息或执行其他操作
+                e.printStackTrace();
+            }
         } else if ("3.近一年".equals(selectedOption)) {
             YearChart.toFront();
+            try {
+                yearLowestPrice();
+            } catch (SQLException e) {
+                // 异常处理代码，可以打印异常信息或执行其他操作
+                e.printStackTrace();
+            }
         }
+    }
+
+    private void yearLowestPrice() throws SQLException {
+        //1.Price_History里面寻找是否有价格变动
+        //如果有变动的话，找到最低价
+        double lowest_price = product.Price;
+        SQLHelper a = new SQLHelper();
+        String query = "Select Price From PriceHistory " +
+                "Where ProductId = " + product.ProductId +
+                " AND Date >= DATE_SUB(NOW(), INTERVAL 1 Year)";
+        ResultSet resultSet = a.executeQuery(query);
+        while (resultSet.next()) {
+            double tempPrice = resultSet.getDouble("Price");
+            if (tempPrice < lowest_price) {
+                lowest_price = tempPrice;
+            }
+        }
+        a.close();
+        product_TempLowestPrice.setText("时间范围内最低价: " + lowest_price);
+    }
+
+    private void monthLowestPrice() throws SQLException {
+        //1.Price_History里面寻找是否有价格变动
+        //如果有变动的话，找到最低价
+        double lowest_price = product.Price;
+        SQLHelper a = new SQLHelper();
+        String query = "Select Price From PriceHistory " +
+                "Where ProductId = " + product.ProductId +
+                " AND Date >= DATE_SUB(NOW(), INTERVAL 1 Month)";
+        ResultSet resultSet = a.executeQuery(query);
+        while (resultSet.next()) {
+            double tempPrice = resultSet.getDouble("Price");
+            if (tempPrice < lowest_price) {
+                lowest_price = tempPrice;
+            }
+        }
+        a.close();
+        product_TempLowestPrice.setText("时间范围内最低价: " + lowest_price);
+    }
+
+    private void weekLowestPrice() throws SQLException {
+        //1.Price_History里面寻找是否有价格变动
+        //如果有变动的话，找到最低价
+        double lowest_price = product.Price;
+        SQLHelper a = new SQLHelper();
+        String query = "Select Price From PriceHistory " +
+                "Where ProductId = " + product.ProductId +
+                " AND Date >= DATE_SUB(NOW(), INTERVAL 1 Week)";
+        ResultSet resultSet = a.executeQuery(query);
+        while (resultSet.next()) {
+            double tempPrice = resultSet.getDouble("Price");
+            if (tempPrice < lowest_price) {
+                lowest_price = tempPrice;
+            }
+        }
+        a.close();
+        product_TempLowestPrice.setText("时间范围内最低价: " + lowest_price);
     }
 }

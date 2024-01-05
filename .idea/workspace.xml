@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d1f118-156a-4896-846c-358347361e96" name="更改" comment="写完了收藏行为和消息发送，消息页面和收藏页面">
-      <change afterPath="$PROJECT_DIR$/favoriteData.csv" afterDir="false" />
+    <list default="true" id="b7d1f118-156a-4896-846c-358347361e96" name="更改" comment="基本操作都写完了">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/SQLHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/SQLHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/MerchantMainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/MerchantMainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/UserMainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/UserMainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priceHistoryData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/priceHistoryData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/productData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/StrategyTool/injectByMonth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/StrategyTool/injectByMonth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/UserProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/UserProductView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/user_product.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/user_product.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +119,7 @@
       <workItem from="1703444650821" duration="32164000" />
       <workItem from="1703952367557" duration="21081000" />
       <workItem from="1704307162313" duration="18956000" />
-      <workItem from="1704439665974" duration="11510000" />
+      <workItem from="1704439665974" duration="14419000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <option name="closed" value="true" />
@@ -194,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704446161400</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="基本操作都写完了">
+      <option name="closed" value="true" />
+      <created>1704454331322</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1704454331322</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +227,8 @@
     <MESSAGE value="写完了商户页面的发布新商品，展示已知商品" />
     <MESSAGE value="写完了商品页面的折线图展示" />
     <MESSAGE value="写完了收藏行为和消息发送，消息页面和收藏页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="写完了收藏行为和消息发送，消息页面和收藏页面" />
+    <MESSAGE value="基本操作都写完了" />
+    <option name="LAST_COMMIT_MESSAGE" value="基本操作都写完了" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -239,37 +247,37 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java</url>
-          <line>99</line>
+          <line>100</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java</url>
-          <line>100</line>
+          <line>101</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java</url>
-          <line>101</line>
+          <line>102</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java</url>
-          <line>102</line>
+          <line>103</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java</url>
-          <line>103</line>
+          <line>104</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java</url>
-          <line>104</line>
+          <line>105</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java</url>
-          <line>105</line>
+          <line>106</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

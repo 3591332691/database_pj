@@ -34,6 +34,7 @@
                         </FXCollections>
                     </items>
                 </ComboBox>
+                <Text fx:id="product_TempLowestPrice" text="时间范围内最低价: "/>
                 <StackPane>
                     <LineChart fx:id="WeekChart">
                         <xAxis>
