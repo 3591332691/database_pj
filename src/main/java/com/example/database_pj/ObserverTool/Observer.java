@@ -1,5 +1,7 @@
 package com.example.database_pj.ObserverTool;
 
+import java.sql.SQLException;
+
 public class Observer {
     private String name;
 
@@ -7,7 +9,7 @@ public class Observer {
         return name;
     }
 
-    public void update(Subject a) {
+    public void update(Subject a) throws SQLException {
 
     }
 

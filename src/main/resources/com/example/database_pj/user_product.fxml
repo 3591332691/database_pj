@@ -8,7 +8,7 @@
 <?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.database_pj.View.MerchantProductView">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.database_pj.View.UserProductView">
 
     <center>
         <HBox prefHeight="400.0" prefWidth="600.0" spacing="10">

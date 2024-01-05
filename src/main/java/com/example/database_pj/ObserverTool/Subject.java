@@ -1,5 +1,6 @@
 package com.example.database_pj.ObserverTool;
 
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class Subject {
     /**
      * 让所有的Observer update
      */
-    public void notifyObserver() {
+    public void notifyObserver() throws SQLException {
         Iterator<Observer> iterator = ObserverList.iterator();
         while (iterator.hasNext()) {
             Observer observer = iterator.next();

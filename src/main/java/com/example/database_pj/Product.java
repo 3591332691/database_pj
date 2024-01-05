@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class Product extends Subject {
@@ -60,9 +61,46 @@ public class Product extends Subject {
             PlatformName = resultsetC.getString("PlatformName");
         }
         c.close();
+
     }
 
-    public void GetPriceHistory() {//TODO:策略模式
+    /**
+     * 用于初始化ObserverList
+     */
+    private void initialObserverList() throws SQLException {
+        SQLHelper a = new SQLHelper();
+        String query = "Select UserId from Favorite Where ProductId = " + ProductId;
+        ResultSet resultSet = a.executeQuery(query);
+        while (resultSet.next()) {
+            String username = selectUsernameFromUserId(resultSet.getInt("UserId"));
+            User temp = new User(username);
+            ObserverList.add(temp);
+        }
+    }
 
+    @Override
+    public void notifyObserver() throws SQLException {
+        initialObserverList();
+        Iterator<Observer> iterator = ObserverList.iterator();
+        while (iterator.hasNext()) {
+            Observer observer = iterator.next();
+            observer.update(this);
+        }
+    }
+
+    /**
+     * 已知UserId,返回username
+     *
+     * @return username
+     */
+    private String selectUsernameFromUserId(int UserId) throws SQLException {
+        String username = "";
+        SQLHelper a = new SQLHelper();
+        String query = "select Name From User Where UserId = " + UserId;
+        ResultSet resultSet = a.executeQuery(query);
+        while (resultSet.next()) {
+            username = resultSet.getString("Name");
+        }
+        return username;
     }
 }

@@ -63,6 +63,10 @@ public class UserProductView {
         product_lowestPrice.setText("历史最低价: " + GetLowestPrice());
         initialLineChart();
         chooseTimeGap.setOnAction(this::handleComboBoxAction);
+        initialFavorButton();
+    }
+
+    private void initialFavorButton() {
 
     }
 

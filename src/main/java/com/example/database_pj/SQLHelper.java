@@ -226,7 +226,7 @@ public class SQLHelper {
             String csvFilePath = "priceHistoryData.csv";
             BufferedReader reader = new BufferedReader(new FileReader(csvFilePath));
             String line;
-            // 逐行读取CSV文件并插入到product表中
+            // 逐行读取CSV文件并插入到priceHistory表中
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",");
                 // 解析CSV行的数据
@@ -366,7 +366,7 @@ public class SQLHelper {
                     "ProductId INT," +
                     "MerchantId INT," +
                     "PlatformId INT," +
-                    "Price_Lower_Limit DECIMAL(10, 2)," +
+                    "Price_Lower_Limit DOUBLE," +
                     "FOREIGN KEY (UserId) REFERENCES User(UserId)," +
                     "FOREIGN KEY (ProductId) REFERENCES Product(ProductId)," +
                     "FOREIGN KEY (MerchantId) REFERENCES Merchant(MerchantId)," +
@@ -393,7 +393,7 @@ public class SQLHelper {
                     "ProductId INT," +
                     "MerchantId INT," +
                     "PlatformId INT," +
-                    "CurrentPrice DECIMAL(10, 2)," +
+                    "CurrentPrice double," +
                     "FOREIGN KEY (UserId) REFERENCES User(UserId)," +
                     "FOREIGN KEY (ProductId) REFERENCES Product(ProductId)," +
                     "FOREIGN KEY (MerchantId) REFERENCES Merchant(MerchantId)," +
@@ -419,7 +419,7 @@ public class SQLHelper {
                     "ProductId INT," +
                     "MerchantId INT," +
                     "PlatformId INT," +
-                    "Price DECIMAL(10, 2)," +
+                    "Price double," +
                     "Date DATE," +
                     "FOREIGN KEY (ProductId) REFERENCES Product(ProductId)," +
                     "FOREIGN KEY (MerchantId) REFERENCES Merchant(MerchantId)," +

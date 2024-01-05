@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d1f118-156a-4896-846c-358347361e96" name="更改" comment="写完了商户页面的发布新商品，展示已知商品">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/priceHistoryData.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/StrategyTool/injectByMonth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/StrategyTool/injectByWeek.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/StrategyTool/injectByYear.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/StrategyTool/injectStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/MerchantProductView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/merchant_product.fxml" afterDir="false" />
+    <list default="true" id="b7d1f118-156a-4896-846c-358347361e96" name="更改" comment="写完了商品页面的折线图展示">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/productData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/ObserverTool/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/ObserverTool/Observer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/ObserverTool/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/ObserverTool/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/SQLHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/SQLHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/MerchantMainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/MerchantMainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/UserMainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/UserMainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/UserProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/database_pj/View/UserProductView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/user_main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/user_main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/user_product.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/database_pj/user_product.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -60,31 +58,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/HUAWEI/IdeaProjects/database_pj/src/main/resources/com/example/database_pj/merchant_product.fxml",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDK",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.sourceCode.SQL:2016, Generic",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/HUAWEI/IdeaProjects/database_pj/src/main/resources/com/example/database_pj/merchant_product.fxml&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDK&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.SQL:2016, Generic&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.database_pj" />
@@ -124,7 +122,8 @@
       <workItem from="1703438126469" duration="830000" />
       <workItem from="1703444650821" duration="32164000" />
       <workItem from="1703952367557" duration="21081000" />
-      <workItem from="1704307162313" duration="9343000" />
+      <workItem from="1704307162313" duration="18956000" />
+      <workItem from="1704439665974" duration="6386000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <option name="closed" value="true" />
@@ -182,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703969456109</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="写完了商品页面的折线图展示">
+      <option name="closed" value="true" />
+      <created>1704316922049</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1704316922049</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,11 +213,31 @@
     <MESSAGE value="UserMainView的个人信息填好了" />
     <MESSAGE value="left" />
     <MESSAGE value="写完了商户页面的发布新商品，展示已知商品" />
-    <option name="LAST_COMMIT_MESSAGE" value="写完了商户页面的发布新商品，展示已知商品" />
+    <MESSAGE value="写完了商品页面的折线图展示" />
+    <option name="LAST_COMMIT_MESSAGE" value="写完了商品页面的折线图展示" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/User.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/User.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/database_pj/User.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="currentScene" language="JAVA" />
