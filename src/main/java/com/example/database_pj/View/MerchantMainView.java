@@ -2,12 +2,17 @@ package com.example.database_pj.View;
 
 import com.example.database_pj.Merchant;
 import com.example.database_pj.PriceCompareApplication;
+import com.example.database_pj.Product;
 import com.example.database_pj.SQLHelper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -15,11 +20,11 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class MerchantMainView {
     @FXML
-    private ListView<String> productList;
+    private ListView productList;
     @FXML
     private Text merchant_name;
     @FXML
@@ -44,19 +49,23 @@ public class MerchantMainView {
         merchant = new Merchant(name);
     }
 
-    public void initialize() {
+    public void initialize() throws SQLException {
         if (merchant_name != null && merchant_address != null) {
             merchant_name.setText("名字： " + merchant.Name);
             merchant_address.setText("地址： " + merchant.Address);
         }
-        if (productList != null) {
-            List<String> names = merchant.getProductNames();
-            productList.getItems().addAll(names);
-        }
+
+        initialProductList();
         productList.setOnMouseClicked(event -> {
-            if (event.getClickCount() == 2) { // 检查是否双击事件
-                String selectedProduct = productList.getSelectionModel().getSelectedItem();
-                OpenMerchantProductScene(selectedProduct);
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+                // 双击，打开商品详情页
+                HBox selectedItem = (HBox) productList.getSelectionModel().getSelectedItem();
+                if (selectedItem != null && selectedItem.getChildren().size() > 0) {
+                    // 获取选中项的第一个孩子节点
+                    Text firstChild = (Text) selectedItem.getChildren().get(0);
+                    String a = firstChild.getText();
+                    OpenMerchantProductScene(a);
+                }
             }
         });
         if (releaseButton != null)
@@ -67,6 +76,88 @@ public class MerchantMainView {
                     throw new RuntimeException(e);
                 }
             });
+    }
+
+    /**
+     * 点击修改价格按钮之后的函数
+     *
+     * @param a
+     */
+    private void ClickModifyPriceButton(Product a) throws SQLException, InterruptedException {
+        AtomicReference<String> inputText = new AtomicReference<>("");
+        Stage stage = new Stage();
+        stage.setTitle("设置新价格");
+
+        VBox vbox = new VBox();
+        vbox.setSpacing(10);
+        vbox.setPadding(new Insets(10));
+
+        TextField textField = new TextField();
+        Button button = new Button("确认");
+
+        button.setOnAction(e -> {
+            inputText.set(textField.getText()); // 获取输入的文本内容
+            stage.close(); // 关闭弹窗
+        });
+
+        vbox.getChildren().addAll(textField, button);
+
+        Scene scene = new Scene(vbox, 200, 100);
+        stage.setScene(scene);
+        stage.showAndWait(); // 等待弹窗关闭
+
+        if (inputText.get().matches("\\d+")) {
+            // inputText 中的内容全是数字
+            int numericValue = Integer.parseInt(inputText.get()); // 将 inputText 转换为整数
+            double newPrice = numericValue;
+            if (a.ModifyPriceTo(newPrice)) {
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("提醒");
+                alert.setHeaderText(null);
+                alert.setContentText("修改价格成功！");
+                alert.showAndWait();
+                refreshScene();
+            }
+
+        } else {
+            // inputText 中的内容不全是数字
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("错误");
+            alert.setHeaderText(null);
+            alert.setContentText("请输入有效的数字！");
+            alert.showAndWait();
+        }
+    }
+
+    /**
+     * 用于初始化商家的已上架的商品页面
+     */
+    private void initialProductList() throws SQLException {
+        SQLHelper a = new SQLHelper();
+        String query = "SELECT * FROM Product WHERE MerchantId =" + merchant.MerchantId;
+        ResultSet resultSet = a.executeQuery(query);
+        while (resultSet != null && resultSet.next()) {
+            int tempProductId = resultSet.getInt("ProductId");
+            Product tempProduct = new Product(tempProductId);
+            //系列商品的简略信息，包括商品名称、商品所属商家、平台、价格等。
+            Text productText = new Text(tempProduct.ProductId + "." + tempProduct.Name +
+                    " " + tempProduct.PlatformName + " 价格：" + tempProduct.Price);
+            Button favoriteButton = new Button("修改价格");
+            favoriteButton.setOnAction(event -> {
+                try {
+                    ClickModifyPriceButton(tempProduct);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+            HBox productContainer = new HBox();
+            productContainer.setSpacing(10);
+            productContainer.getChildren().addAll(productText, favoriteButton);
+            productList.getItems().add(productContainer);
+        }
     }
 
     /**

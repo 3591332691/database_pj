@@ -6,12 +6,13 @@ import com.example.database_pj.ObserverTool.Subject;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 public class Product extends Subject {
-    private List<Observer> ObserverList;
+    private List<Observer> ObserverList = new ArrayList<>();
     public int ProductId;
     public String Name;
     public String Category;
@@ -62,6 +63,23 @@ public class Product extends Subject {
         }
         c.close();
 
+    }
+
+    /**
+     * 用来修改商品价格，修改之后自动提醒所有的观察者（收藏者）
+     *
+     * @param newPrice
+     * @return 如果修改价格成功，就返回true
+     */
+    public boolean ModifyPriceTo(double newPrice) throws SQLException {
+        SQLHelper a = new SQLHelper();
+        String updateQuery = "UPDATE product SET Price = " + newPrice + " WHERE ProductId = " + ProductId;
+        boolean success = a.executeUpdate(updateQuery);
+        if (success == true) {
+            notifyObserver();
+            return true;
+        }
+        return false;
     }
 
     /**

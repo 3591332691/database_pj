@@ -134,7 +134,6 @@ public class UserMainView {
 
     /**
      * 打开商品详情页面
-     *
      * @param selectedProduct
      */
     private void OpenUserProductScene(String selectedProduct) {
@@ -167,7 +166,7 @@ public class UserMainView {
 
     /**
      * handleSearchButton()的辅助函数
-     *
+     *用来动态改变搜索出来的内容
      * @param searchContent
      * @throws SQLException
      */
@@ -203,7 +202,6 @@ public class UserMainView {
      * @param product 要收藏的商品
      */
     private void ClickFavoriteButton(Product product) throws SQLException {
-        //TODO:点击了收藏按钮之后应该有个弹窗要输入设定的价格界限
         //  先判断这个商品是否已经被收藏了，如果还没有的话，点击出现弹窗
         if (user.IsFavor(product)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -214,7 +212,7 @@ public class UserMainView {
         } else {
             AtomicReference<String> inputText = new AtomicReference<>("");
             Stage stage = new Stage();
-            stage.setTitle("设置价格界限");
+            stage.setTitle("设置价格提醒下限");
 
             VBox vbox = new VBox();
             vbox.setSpacing(10);

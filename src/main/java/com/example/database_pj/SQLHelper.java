@@ -45,6 +45,7 @@ public class SQLHelper {
             injectPlatformData();
             injectProductData();
             injectPriceHistoryData();
+            injectFavoriteData();
         }
     }
 
@@ -260,6 +261,51 @@ public class SQLHelper {
             }
             reader.close();
             System.out.println("ProductHistory数据注入成功！");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 用来注入收藏表
+     */
+    private void injectFavoriteData() {
+        try {
+            // 读取priceFavoriteData.csv文件
+            String csvFilePath = "favoriteData.csv";
+            BufferedReader reader = new BufferedReader(new FileReader(csvFilePath));
+            String line;
+            // 逐行读取CSV文件并插入到favorite表中
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                // 解析CSV行的数据
+                int FavoriteId = Integer.parseInt(fields[0]);
+                int UserId = Integer.parseInt(fields[1]);
+                int ProductId = Integer.parseInt(fields[2]);
+                int MerchantId = Integer.parseInt(fields[3]);
+                int PlatformId = Integer.parseInt(fields[4]);
+                double Price_Lower_Limit = Double.parseDouble(fields[5]);
+                // 检查ID是否已存在,防止重复插入报错
+                if (isTableIdExists("Favorite", FavoriteId)) {
+                    continue;
+                }
+                // 插入数据到Favorite表
+                String sql = "INSERT INTO Favorite " +
+                        "(FavoriteId, UserId,ProductId,MerchantId, PlatformId ,Price_Lower_Limit) " +
+                        "VALUES ( ?, ?, ?, ?, ?, ?)";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, FavoriteId);
+                preparedStatement.setInt(2, UserId);
+                preparedStatement.setInt(3, ProductId);
+                preparedStatement.setInt(4, MerchantId);
+                preparedStatement.setInt(5, PlatformId);
+                preparedStatement.setDouble(6, Price_Lower_Limit);
+                preparedStatement.executeUpdate();
+            }
+            reader.close();
+            System.out.println("Favorite数据注入成功！");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {

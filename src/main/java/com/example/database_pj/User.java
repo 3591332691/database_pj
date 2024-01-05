@@ -94,14 +94,15 @@ public class User extends Observer {
      */
     @Override
     public void update(Subject a) throws SQLException {
+        Product newProduct = new Product(((Product) a).ProductId);
         //      查找Favor库，如果a的价格低于User设定的Price_Lower_Limit
         //      就往Message里新增一条信息
         if (IsLowerThanLimit((Product) a)) {
             SQLHelper temp = new SQLHelper();
             String insertQuery = "INSERT INTO Message " +
                     "(UserId,ProductId,MerchantId,PlatformId,CurrentPrice)" +
-                    "Values('" + User.UserId + "', '" + ((Product) a).ProductId + "', '" + ((Product) a).MerchantId +
-                    "', '" + ((Product) a).PlatformId + "', '" + ((Product) a).Price +
+                    "Values('" + User.UserId + "', '" + newProduct.ProductId + "', '" + newProduct.MerchantId +
+                    "', '" + newProduct.PlatformId + "', '" + newProduct.Price +
                     "')";
             boolean successA = temp.executeUpdate(insertQuery);
             temp.close();
@@ -111,22 +112,22 @@ public class User extends Observer {
 
     /**
      * 判收藏的断商品a的价格是否小于等于设定的提醒价格
-     *
      * @param a 商品
      * @return 如果小于等于设定的提醒价格，返回true
      */
     private static boolean IsLowerThanLimit(Product a) throws SQLException {
+        Product changedProduct = new Product(a.ProductId);
         double Price_Lower_Limit = 0;
         SQLHelper searchLimitPrice = new SQLHelper();
         String query = "Select Price_Lower_Limit " +
                 "From Favorite " +
-                "Where UserId = " + User.UserId + " And ProductId = " + a.ProductId;
+                "Where UserId = " + User.UserId + " And ProductId = " + changedProduct.ProductId;
         ResultSet resultSet = searchLimitPrice.executeQuery(query);
         while (resultSet != null && resultSet.next()) {
             Price_Lower_Limit = resultSet.getDouble("Price_Lower_Limit");
         }
         searchLimitPrice.close();
-        if (Price_Lower_Limit >= a.Price) {
+        if (Price_Lower_Limit >= changedProduct.Price) {
             return true;
         }
         return false;
